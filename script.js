@@ -35,14 +35,11 @@ function rollDice()
     let firstDiceValue = Math.floor(Math.random()*6 + 1);
     let secondDiceValue = Math.floor(Math.random()*6 + 1);
 
-    console.log(firstDiceValue,secondDiceValue);
-
     document.querySelector("#dice-1").setAttribute("src",images[firstDiceValue - 1]);
     document.querySelector("#dice-2").setAttribute("src",images[secondDiceValue - 1]);
 
 
     let total = firstDiceValue + secondDiceValue;
-    console.log(total);
 
     if(firstDiceValue==1 && secondDiceValue==1)
     {
