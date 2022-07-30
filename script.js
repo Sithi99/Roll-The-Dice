@@ -62,7 +62,7 @@ function rollDice()
 }
 
 function changePlayer(){
-    if(currentPlayer.name == "player1"){
+    if(currentPlayer == player1){
         currentPlayer = player2;
         
     }
