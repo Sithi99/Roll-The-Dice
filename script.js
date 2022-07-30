@@ -17,8 +17,8 @@ var Player2 ={
 }
 
 
-let scorePlayer1 = document.querySelector("#player1Score");
-let scorePlayer2 = document.querySelector("#player2Score");
+let player1Score = document.querySelector("#player1Score");
+let player2Score = document.querySelector("#player2Score");
 
 var currentPlayer = Player1;
 
@@ -43,47 +43,48 @@ function rollDice()
         
         currentPlayer.Total = 0;
         nextPlayer();
-        checkWinner();
     }
     else if(firstDiceValue == secondDiceValue)
     {
         currentPlayer.Total = currentPlayer.Total + total;
-        checkWinner();
     }
     else
     {
         currentPlayer.Total = currentPlayer.Total + total;
         nextPlayer();
-        checkWinner();
         
     }
-
+    
 }
 
 function nextPlayer(){
     if(currentPlayer.Name == "Player1")
     {
-        scorePlayer1.innerHTML = "Score: "+currentPlayer.Total;
+        player1Score.innerHTML = "Score: "+currentPlayer.Total;
         currentPlayer = Player2;
+        checkWinner();
         
     }
     else
     {
-        scorePlayer2.innerHTML = "Score: "+currentPlayer.Total;
+        player2Score.innerHTML = "Score: "+currentPlayer.Total;
         currentPlayer = Player1;
+        checkWinner();
         
     }
 }
 
 function checkWinner()
 {
-    if(Player1.Total >= 100)
+    if(Player1.Total >= 100 )
     {
         alert("Player 1 Wins");
+       
     }
 
     if(Player2.Total >= 100)
     {
         alert("Player 2 Wins");
+        
     }
 }
