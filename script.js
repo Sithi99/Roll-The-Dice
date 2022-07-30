@@ -8,17 +8,17 @@ let images = ["dice_1.png",
 
 var Player1 ={
     Name: "Player1",
-    Total: 0,
+    score: 0,
     displayScore: function(){
-        player1Score.innerHTML = "Score: "+currentPlayer.Total;
+        player1Score.innerHTML = "Score: "+currentPlayer.score;
     }
 }
 
 var Player2 ={
     Name: "Player2",
-    Total: 0,
+    score: 0,
     displayScore: function(){
-        player2Score.innerHTML = "Score: "+currentPlayer.Total;
+        player2Score.innerHTML = "Score: "+currentPlayer.score;
     }
 }
 
@@ -42,17 +42,16 @@ function rollDice()
     let total = firstDiceValue + secondDiceValue;
 
     if(firstDiceValue==1 && secondDiceValue==1){
-        
-        currentPlayer.Total = 0;
+        currentPlayer.score = 0;
         currentPlayer.displayScore();
         changePlayer();
     }
     else if(firstDiceValue == secondDiceValue){
-        currentPlayer.Total +=  total;
+        currentPlayer.score +=  total;
         currentPlayer.displayScore();
     }
     else{
-        currentPlayer.Total = currentPlayer.Total + total;
+        currentPlayer.score += total;
         currentPlayer.displayScore();
         changePlayer();
         
@@ -74,11 +73,11 @@ function changePlayer(){
 }
 
 function checkWinner(){
-    if(Player1.Total >= 100 ){
+    if(Player1.score >= 100 ){
         alert("Player 1 Wins");   
     }
 
-    if(Player2.Total >= 100){
+    if(Player2.score >= 100){
         alert("Player 2 Wins");  
     }
 }
