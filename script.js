@@ -6,16 +6,16 @@ let images = ["dice_1.png",
     "dice_6.png"]
     let dice = document.querySelectorAll("img");
 
-var Player1 ={
-    Name: "Player1",
+var player1 ={
+    name: "player1",
     score: 0,
     displayScore: function(){
         player1Score.innerHTML = "Score: "+this.score;
     }
 }
 
-var Player2 ={
-    Name: "Player2",
+var player2 ={
+    name: "player2",
     score: 0,
     displayScore: function(){
         player2Score.innerHTML = "Score: "+this.score;
@@ -26,7 +26,7 @@ var Player2 ={
 let player1Score = document.querySelector("#player1Score");
 let player2Score = document.querySelector("#player2Score");
 
-var currentPlayer = Player1;
+var currentPlayer = player1;
 
 
 function rollDice()
@@ -62,31 +62,31 @@ function rollDice()
 }
 
 function changePlayer(){
-    if(currentPlayer.Name == "Player1"){
-        currentPlayer = Player2;
+    if(currentPlayer.name == "player1"){
+        currentPlayer = player2;
         
     }
     else{
-        currentPlayer = Player1;
+        currentPlayer = player1;
         
     }
 }
 
 function checkWinner(){
-    if(Player1.score >= 100 ){
-        alert(`Player 1 got ${Player1.score} marks and Won !! Press 'ok' to restart.`);  
+    if(player1.score >= 100 ){
+        alert(`Player 1 got ${player1.score} marks and Won !! Press 'ok' to restart.`);  
         restart(); 
     }
 
-    if(Player2.score >= 100){
-        alert(`Player 2 got ${Player2.score} marks and Won !! Press 'ok' to restart.`);  
+    if(player2.score >= 100){
+        alert(`Player 2 got ${player2.score} marks and Won !! Press 'ok' to restart.`);  
         restart();
     }
 }
 
 function restart(){
-    Player1.score = 0;
-    Player2.score = 0;
-    Player1.displayScore();
-    Player2.displayScore();   
+    player1.score = 0;
+    player2.score = 0;
+    player1.displayScore();
+    player2.displayScore();   
 }
