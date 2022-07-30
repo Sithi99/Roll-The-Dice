@@ -56,18 +56,18 @@ function rollDice()
         changePlayer();
         
     }
+
+    checkWinner();
     
 }
 
 function changePlayer(){
     if(currentPlayer.Name == "Player1"){
         currentPlayer = Player2;
-        checkWinner();
         
     }
     else{
         currentPlayer = Player1;
-        checkWinner();
         
     }
 }
