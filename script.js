@@ -74,12 +74,12 @@ function changePlayer(){
 
 function checkWinner(){
     if(Player1.score >= 100 ){
-        alert("Player 1 Won !! Press 'ok' to restart.");  
+        alert(`Player 1 got ${Player1.score} marks and Won !! Press 'ok' to restart.`);  
         restart(); 
     }
 
     if(Player2.score >= 100){
-        alert("Player 2 Won !! Press 'ok' to restart.");  
+        alert(`Player 2 got ${Player2.score} marks and Won !! Press 'ok' to restart.`);  
         restart();
     }
 }
