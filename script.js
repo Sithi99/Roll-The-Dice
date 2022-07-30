@@ -10,7 +10,7 @@ var Player1 ={
     Name: "Player1",
     score: 0,
     displayScore: function(){
-        player1Score.innerHTML = "Score: "+currentPlayer.score;
+        player1Score.innerHTML = "Score: "+this.score;
     }
 }
 
@@ -18,7 +18,7 @@ var Player2 ={
     Name: "Player2",
     score: 0,
     displayScore: function(){
-        player2Score.innerHTML = "Score: "+currentPlayer.score;
+        player2Score.innerHTML = "Score: "+this.score;
     }
 }
 
@@ -74,10 +74,19 @@ function changePlayer(){
 
 function checkWinner(){
     if(Player1.score >= 100 ){
-        alert("Player 1 Wins");   
+        alert("Player 1 Won !! Press 'ok' to restart.");  
+        restart(); 
     }
 
     if(Player2.score >= 100){
-        alert("Player 2 Wins");  
+        alert("Player 2 Won !! Press 'ok' to restart.");  
+        restart();
     }
+}
+
+function restart(){
+    Player1.score = 0;
+    Player2.score = 0;
+    Player1.displayScore();
+    Player2.displayScore();   
 }
