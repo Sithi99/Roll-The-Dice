@@ -41,20 +41,17 @@ function rollDice()
 
     let total = firstDiceValue + secondDiceValue;
 
-    if(firstDiceValue==1 && secondDiceValue==1)
-    {
+    if(firstDiceValue==1 && secondDiceValue==1){
         
         currentPlayer.Total = 0;
         currentPlayer.displayScore();
         nextPlayer();
     }
-    else if(firstDiceValue == secondDiceValue)
-    {
+    else if(firstDiceValue == secondDiceValue){
         currentPlayer.Total +=  total;
         currentPlayer.displayScore();
     }
-    else
-    {
+    else{
         currentPlayer.Total = currentPlayer.Total + total;
         currentPlayer.displayScore();
         nextPlayer();
@@ -64,31 +61,24 @@ function rollDice()
 }
 
 function nextPlayer(){
-    if(currentPlayer.Name == "Player1")
-    {
+    if(currentPlayer.Name == "Player1"){
         currentPlayer = Player2;
         checkWinner();
         
     }
-    else
-    {
+    else{
         currentPlayer = Player1;
         checkWinner();
         
     }
 }
 
-function checkWinner()
-{
-    if(Player1.Total >= 100 )
-    {
-        alert("Player 1 Wins");
-       
+function checkWinner(){
+    if(Player1.Total >= 100 ){
+        alert("Player 1 Wins");   
     }
 
-    if(Player2.Total >= 100)
-    {
-        alert("Player 2 Wins");
-        
+    if(Player2.Total >= 100){
+        alert("Player 2 Wins");  
     }
 }
