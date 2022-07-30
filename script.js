@@ -45,7 +45,7 @@ function rollDice()
         
         currentPlayer.Total = 0;
         currentPlayer.displayScore();
-        nextPlayer();
+        changePlayer();
     }
     else if(firstDiceValue == secondDiceValue){
         currentPlayer.Total +=  total;
@@ -54,13 +54,13 @@ function rollDice()
     else{
         currentPlayer.Total = currentPlayer.Total + total;
         currentPlayer.displayScore();
-        nextPlayer();
+        changePlayer();
         
     }
     
 }
 
-function nextPlayer(){
+function changePlayer(){
     if(currentPlayer.Name == "Player1"){
         currentPlayer = Player2;
         checkWinner();
