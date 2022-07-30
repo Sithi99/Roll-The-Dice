@@ -8,12 +8,18 @@ let images = ["dice_1.png",
 
 var Player1 ={
     Name: "Player1",
-    Total: 0
+    Total: 0,
+    displayScore: function(){
+        player1Score.innerHTML = "Score: "+currentPlayer.Total;
+    }
 }
 
 var Player2 ={
     Name: "Player2",
-    Total: 0
+    Total: 0,
+    displayScore: function(){
+        player2Score.innerHTML = "Score: "+currentPlayer.Total;
+    }
 }
 
 
@@ -42,15 +48,18 @@ function rollDice()
     {
         
         currentPlayer.Total = 0;
+        currentPlayer.displayScore();
         nextPlayer();
     }
     else if(firstDiceValue == secondDiceValue)
     {
-        currentPlayer.Total = currentPlayer.Total + total;
+        currentPlayer.Total +=  total;
+        currentPlayer.displayScore();
     }
     else
     {
         currentPlayer.Total = currentPlayer.Total + total;
+        currentPlayer.displayScore();
         nextPlayer();
         
     }
@@ -60,14 +69,12 @@ function rollDice()
 function nextPlayer(){
     if(currentPlayer.Name == "Player1")
     {
-        player1Score.innerHTML = "Score: "+currentPlayer.Total;
         currentPlayer = Player2;
         checkWinner();
         
     }
     else
     {
-        player2Score.innerHTML = "Score: "+currentPlayer.Total;
         currentPlayer = Player1;
         checkWinner();
         
