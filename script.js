@@ -10,7 +10,7 @@ var player1 ={
     name: "player1",
     score: 0,
     displayScore: function(){
-        player1Score.innerHTML = "Score: "+this.score;
+        player1Score.innerHTML = "SCORE : "+this.score;
     }
 }
 
@@ -18,7 +18,7 @@ var player2 ={
     name: "player2",
     score: 0,
     displayScore: function(){
-        player2Score.innerHTML = "Score: "+this.score;
+        player2Score.innerHTML = "SCORE : "+this.score;
     }
 }
 
@@ -61,6 +61,11 @@ function rollDice()
     
 }
 
+function newGame()
+{
+    restart();
+}
+
 function changePlayer(){
     if(currentPlayer == player1){
         currentPlayer = player2;
@@ -72,21 +77,31 @@ function changePlayer(){
     }
 }
 
+let p1 = document.querySelector("#P1");
+let p2 = document.querySelector("#P2");
+let rollButton = document.querySelector("#rollButton");
+
 function checkWinner(){
     if(player1.score >= 100 ){
-        alert(`Player 1 got ${player1.score} marks and Won !! Press 'ok' to restart.`);  
-        restart(); 
+        p1.innerHTML = "WINNER!";
+        rollButton.style.display = "none";
+  
     }
 
+
     if(player2.score >= 100){
-        alert(`Player 2 got ${player2.score} marks and Won !! Press 'ok' to restart.`);  
-        restart();
+        p2.innerHTML = "WINNER!";
+        rollButton.style.display = "none";
+        
     }
 }
 
 function restart(){
     player1.score = 0;
     player2.score = 0;
+    p1.innerHTML = "PLAYER l";
+    p2.innerHTML = "PLAYER ll";
     player1.displayScore();
-    player2.displayScore();   
+    player2.displayScore();
+    rollButton.style.display = null;   
 }
